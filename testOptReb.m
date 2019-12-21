@@ -35,8 +35,7 @@ mvd = optimizeCostfunction(mvd, 0);
 %% MvD - Approximation of best multiperiod rebalancing solution
 simFreq = 12;
 numPeriods = 36;
-numSims = 100;
-
+numSims = 10;
 
 tic
 fprintf('Training/Calibration  - MvD - Quadratic Approximation ... \n')
@@ -74,7 +73,7 @@ indxBest = find(totCost == min(totCost));
 bestMvD = mvd(1 + indxBest);
 
 % We need a greater number of simulations
-numSims = 500;
+numSims = 50;
 propMap = containers.Map({'numSims'}, {numSims});
 bestMvD = setProperties(bestMvD, propMap);
 
