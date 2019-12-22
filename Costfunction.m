@@ -160,7 +160,7 @@ classdef Costfunction < MyPortfolio & matlab.mixin.CustomDisplay
 
         end % cfMVT_wTC
 
-        % Mean-variance-tracking with tranaction costs
+        % Mean-variance-tracking with tranaction costs and QAprx
         function f = cfMVT_wTC_wQAprx(obj, dw, wc, wb, wo, mu, tnsCst, lambdaAbs,  lambdaRel, covMtx, QAprx)
 
             % Split weights into positive and negative parts

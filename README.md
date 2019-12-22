@@ -1,13 +1,9 @@
 # OptimalRebalancing_MvD
-Calibrates a quadratic heuristic, based on Markowitz and van Dijk's work in portfolio theory, to approximate the performance of the dynamic programming solution to the multiperiod optimization problem of maintaining a strategic asset allocation over a long investment horizon.
+Calibrates a quadratic heuristic, based on Markowitz and van Dijk's work along the same lines, to approximate the performance of the dynamic programming solution to the multiperiod optimization problem of maintaining a strategic asset allocation over a long investment horizon.
 
-Class structure hierachy
+Class structure hierachy(class -> superclass)
 
       OptReb_MvD   <-  Costfunction  <-  Portfolio
       
-class Portfolio
-  curWts
-  benWts
-  expRts
-  covMtx
-    
+      
+testOptReb.m - runs the 3 assets test case
