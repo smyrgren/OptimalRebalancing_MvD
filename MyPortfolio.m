@@ -1,4 +1,4 @@
-classdef Portfolio
+classdef MyPortfolio
     properties
         assetNames
         dateCreated
@@ -13,7 +13,7 @@ classdef Portfolio
     methods (Access = public)
         
         % Constructor
-        function obj = Portfolio()
+        function obj = MyPortfolio()
             obj.dateCreated = date();
         end % constructor
         

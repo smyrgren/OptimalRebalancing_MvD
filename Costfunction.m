@@ -1,4 +1,4 @@
-classdef Costfunction < Portfolio & matlab.mixin.CustomDisplay
+classdef Costfunction < MyPortfolio & matlab.mixin.CustomDisplay
 
     properties
         funcName
@@ -16,7 +16,7 @@ classdef Costfunction < Portfolio & matlab.mixin.CustomDisplay
         % Constructor
         function obj = Costfunction()
             
-            obj@Portfolio();
+            obj@MyPortfolio();
             
         end % constructor Costfunc
         % Set class properties
