@@ -1,13 +1,12 @@
 clear classes
 
 %% Create the MvD object
-mvd = OptReb_MvD();
+mvd = OptRebMvD();
 
 % Initial - Portfolio and asset characterstics
 astNames = ["AA" "BB" "CC"];
 curWts = [.4 .4 .2];
 benWts = [.6 .3 .1];
-expRts = [.16 .06 .11];
 stdDvs = [.19 .08 .12];
 corMtx = [1 -.6 -.2; -.6 1 .5; -.2 .5 1];
 covMtx = corMtx.*(stdDvs'*stdDvs);
@@ -15,8 +14,11 @@ tnsCst = 1 * [.0050 .0030 .0080];
 
 % Cost function
 funcName = 'MVT';
-lambdaAbs = 10;
+lambdaAbs = 5;
 lambdaRel = 0;
+% The expected returns are implied returns if the current portfolio is
+% optimal
+expRts = (2*lambdaAbs * covMtx * curWts' + .06)';
 
 % Map of properties
 propMap = containers.Map({'assetNames', 'curWts', 'benWts', 'expRts', 'covMtx', 'tnsCst', ...
@@ -35,16 +37,16 @@ mvd = optimizeCostfunction(mvd, 0);
 %% MvD - Approximation of best multiperiod rebalancing solution
 simFreq = 12;
 numPeriods = 36;
-numSims = 50;
+numSims = 500;
 
 tic
 fprintf('Training/Calibration  - MvD - Quadratic Approximation ... \n')
-for iMvD = 1:7
+for iMvD = 1:11
     
     mvd(end+1) = mvd(1);
     
     QAprx = .1 * (iMvD - 1) * eye(length(curWts));
-
+    
     % Map of properties
     propMap = containers.Map({'funcName', 'QAprx', 'simFreq', 'numPeriods', 'numSims'}, ...
                              {'QAprx', QAprx, simFreq, numPeriods, numSims});

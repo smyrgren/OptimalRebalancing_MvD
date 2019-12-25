@@ -1,4 +1,4 @@
-classdef OptReb_MvD < Costfunction
+classdef OptRebMvD < Costfunction
     properties
         QAprx
         numSims
@@ -14,7 +14,7 @@ classdef OptReb_MvD < Costfunction
     methods (Access = public)
         
         % Constructor
-        function obj = OptReb_MvD()
+        function obj = OptRebMvD()
             obj@Costfunction();
         end
         
@@ -48,13 +48,14 @@ classdef OptReb_MvD < Costfunction
             % Reset the rnadom number generator
             % rng(1)
             
+            fprintf('MvD Session#: %s\n', int2str(nMvD - 1))
             for is = 1:obj.numSims
                 
                 % Input weights
                 iniWts = obj.optWts;
                 
-                fprintf('Session: %s \t Simulation#%s of %s\n', ...
-                               int2str(nMvD - 1), int2str(is), int2str(obj.numSims))
+                %fprintf('Session: %s \t Simulation#%s of %s\n', ...
+                %               int2str(nMvD - 1), int2str(is), int2str(obj.numSims))
             
                 % Run through the periods 
                 for ip = 1:obj.numPeriods
