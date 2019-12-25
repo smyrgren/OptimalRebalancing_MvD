@@ -3,7 +3,7 @@ Calibrates a quadratic heuristic, based on Markowitz and van Dijk's work along t
 
 Class structure hierachy(class -> superclass)
 
-      OptReb_MvD   <-  Costfunction  <-  Portfolio
+      OptRebMvD   <-  Costfunction  <-  Portfolio
       
       
 testOptReb.m - runs the 3 assets test case
